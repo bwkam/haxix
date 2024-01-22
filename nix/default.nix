@@ -64,12 +64,12 @@ with builtins; let
   lime = import ./lime.nix {
     inherit pkgs haxelib;
     inherit (format) format_latest;
-    inherit (haxe) haxe_latest;
+    inherit (haxe) haxe_4_3_3;
   };
 
   shell = pkgs.mkShell {
     buildInputs = [
-      haxe.haxe_latest
+      haxe.haxe_4_3_3
       hashlink.hashlink_latest
       format.format_latest
       heaps.heaps_latest

@@ -47,4 +47,6 @@ in {
     src = haxe;
     ocaml-ng = pkgs.ocaml-ng.ocamlPackages_4_08;
   };
+
+  haxe_4_3_3 = pkgs.haxe;
 }

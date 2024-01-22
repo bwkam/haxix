@@ -2,7 +2,7 @@
 {
   pkgs,
   haxelib,
-  haxe_latest,
+  haxe_4_3_3,
   format_latest,
 }: let
   lime_8_1_1 = haxelib.mkHaxelib {
@@ -52,7 +52,7 @@ in {
       name = "${name}-${version}";
       inherit src;
       # nativeBuildInputs = [lime_8_1_1 haxe_latest pkgs.neko format_latest];
-      buildInputs = [lime_8_1_1 haxe_latest pkgs.neko format_latest hxp_1_3_0];
+      buildInputs = [lime_8_1_1 haxe_4_3_3 pkgs.neko format_latest hxp_1_3_0];
       unpackPhase = ''
         export HOME=$(mktemp -d)
         cp -r $src/src ./
@@ -62,7 +62,7 @@ in {
 
       buildPhase = ''
         mkdir export
-        ${haxe_latest}/bin/haxelib run lime build ${target} -eval
+        ${haxe_4_3_3}/bin/haxelib run lime build ${target} -eval
       '';
       installPhase = ''
         mkdir -p $out/bin
