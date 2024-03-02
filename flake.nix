@@ -71,7 +71,6 @@
           }
         else if engine == "openfl" then
           (haxix system).openfl.mkGame {
-
             name = "helloworld";
             src = ./. + "/demo/${engine}";
             version = "0.0.1-alpha";
@@ -101,6 +100,12 @@
       templates.lime = {
         path = ./template/lime;
         description = "A simple haxe/lime app";
+        welcomeText = "";
+      };
+
+      templates.openfl = {
+        path = ./template/openfl;
+        description = "A simple openfl app";
         welcomeText = "";
       };
 

@@ -72,6 +72,7 @@ let
     inherit pkgs haxelib;
     inherit (format) format_latest;
     inherit (haxe) haxe_4_3_3;
+    inherit (lime) lime_8_1_1;
   };
 
   shell = pkgs.mkShell {

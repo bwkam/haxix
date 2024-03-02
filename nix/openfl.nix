@@ -1,10 +1,16 @@
-{ pkgs, haxelib, haxe_4_3_3, format_latest, }:
+{ pkgs, haxelib, haxe_4_3_3, format_latest, lime_8_1_1 }:
 
 let
   openfl_9_3_2 = haxelib.mkHaxelib {
     libname = "openfl";
     version = "9.3.2";
-    sha256 = "";
+    sha256 = "sha256-mpq7FuWe+Bn3e+FB+gRKnPo49z5lKt2eD+C0ozmckdc=";
+  };
+
+  hxp_1_3_0 = haxelib.mkHaxelib {
+    libname = "hxp";
+    version = "1.3.0";
+    sha256 = "sha256-h1vziyWzJUk/pHGkkMO1gMrs38rdhKjp9HYi6+QBbCM=";
   };
 
   mkProjectXml = { name, version, }:
@@ -31,7 +37,8 @@ in {
     pkgs.stdenv.mkDerivation {
       name = "${name}-${version}";
       inherit src;
-      buildInputs = [ openfl_9_3_2 ];
+      buildInputs =
+        [ openfl_9_3_2 haxe_4_3_3 lime_8_1_1 format_latest hxp_1_3_0 ];
 
       unpackPhase = ''
         export HOME=$(mktemp -d)
