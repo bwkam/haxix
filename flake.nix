@@ -115,6 +115,7 @@
         mkHaxedoc = (haxix system).dox.mkHaxedoc;
         mkHeapsGame = (haxix system).heaps.mkGame;
         mkLimeGame = (haxix system).lime.mkGame;
+        mkOpenflGame = (haxix system).openfl.mkGame;
         mkHeapsShell = (haxix system).heaps.mkShell;
         mkLimeShell = (haxix system).lime.mkShell;
         mkOpenflShell = (haxix system).openfl.mkShell;
