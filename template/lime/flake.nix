@@ -8,7 +8,7 @@
       id = "nixpkgs";
     };
     # haxix contains all you need for Haxe development
-    haxix.url = "github:MadMcCrow/haxix";
+    haxix.url = "github:bwkam/haxix";
   };
   outputs = { self, haxix, nixpkgs, ... }@inputs:
     let
