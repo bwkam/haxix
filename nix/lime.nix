@@ -8,6 +8,7 @@ let
     postPatch = ''
       substituteInPlace ./tools/platforms/HTML5Platform.hx --replace 'System.runCommand(targetDirectory + "/bin", "npm", ["run", runCommand, "-s"]);'\
         'System.runCommand('${pkgs.neko}/bin/npm', ["run", runCommand, "-s"]);' 
+      substituteInPlace ./src/lime/tools/HTML5Helper.hx --replace 'Sys.command("chmod", ["+x", node]);' '//'
     '';
   };
 
