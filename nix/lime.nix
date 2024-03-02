@@ -3,7 +3,7 @@
 let
   lime_8_1_1 = haxelib.mkHaxelib {
     libname = "lime";
-    name = "lime7";
+    name = "lime8";
     version = "8.1.1";
     sha256 = "sha256-bOwe+jNymk+5liOv0eoFlNtrYxLBlxivntFnrQDDgKU=";
     buildInputs = with pkgs; [ nodejs_20 http-server ];

@@ -40,9 +40,9 @@ in {
           substituteInPlace ./tools/platforms/HTML5Platform.hx --replace 'System.runCommand(targetDirectory + "/bin", "npm", ["run", runCommand, "-s"]);' 'System.runCommand(${pkgs.nodejs_20}/bin/npm, ["run", runCommand, "-s"]);' 
           substituteInPlace ./src/lime/tools/HTML5Helper.hx --replace 'Sys.command("chmod", ["+x", node]);' ""
           substituteInPlace ./src/lime/tools/HTML5Helper.hx --replace 'var node = System.findTemplate(templatePaths, "bin/node/node" + suffix);'\
-            'var node = ${pkgs.nodejs_20}/bin/node"'
+            'var node = ${pkgs.nodejs_20}/bin/node";'
           substituteInPlace ./src/lime/tools/HTML5Helper.hx --replace 'var server = System.findTemplate(templatePaths, "bin/node/http-server/bin/http-server");'\
-            'var server = ${pkgs.http-server}/bin/http-server'
+            'var server = ${pkgs.http-server}/bin/http-server;'
       '' else
         "";
 
