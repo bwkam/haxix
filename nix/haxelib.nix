@@ -27,21 +27,11 @@ in {
         stripRoot = false;
       });
 
-      installPhase = attrs.installPhase or ''
+      installPhase = ''
         runHook preInstall
-        (
-          if [ $(ls $src | wc -l) == 1 ]; then
-            cd $src/* || cd $src
-          else
-            cd $src
-          fi
-          ${
-            installHaxeLib {
-              inherit libname version;
-              files = attrs.files or "*";
-            }
-          }
-        )
+        mkdir -p "$out/lib/haxe/${withCommas libname}/${withCommas version}"
+        echo -n "${version}" > $out/lib/haxe/${withCommas libname}/.current
+        cp -dpR * "$out/lib/haxe/${withCommas libname}/${withCommas version}/"
         runHook postInstall
       '';
 
