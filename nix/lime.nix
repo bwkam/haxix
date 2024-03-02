@@ -5,10 +5,15 @@ let
     libname = "lime";
     version = "8.1.1";
     sha256 = "sha256-bOwe+jNymk+5liOv0eoFlNtrYxLBlxivntFnrQDDgKU=";
+    buildInputs = with pkgs; [ nodejs_20 http-server ];
     postPatch = ''
       substituteInPlace ./tools/platforms/HTML5Platform.hx --replace 'System.runCommand(targetDirectory + "/bin", "npm", ["run", runCommand, "-s"]);'\
-        'System.runCommand('${pkgs.neko}/bin/npm', ["run", runCommand, "-s"]);' 
-      substituteInPlace ./src/lime/tools/HTML5Helper.hx --replace 'Sys.command("chmod", ["+x", node]);' '//'
+        'System.runCommand('${pkgs.nodejs_20}/bin/npm', ["run", runCommand, "-s"]);' 
+      substituteInPlace ./src/lime/tools/HTML5Helper.hx --replace 'Sys.command("chmod", ["+x", node]);' ""
+      substituteInPlace ./src/lime/tools/HTML5Helper.hx --replace 'var node = System.findTemplate(templatePaths, "bin/node/node" + suffix);'\
+        'var node = "${pkgs.nodejs_20}/bin/node"'
+      substituteInPlace ./src/lime/tools/HTML5Helper.hx --replace 'var server = System.findTemplate(templatePaths, "bin/node/http-server/bin/http-server");'\
+        'var server = "${pkgs.http-server}/bin/http-server'
     '';
   };
 
