@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+  <project>
+    <meta title="helloworld" package="helloworld" version="0.1" company="none" />
+    <app main="Main" path="export" file="bin/helloworld" />
+    <source path="src" />
+    <haxelib name="lime" />
+    <assets path="Assets" rename="assets" />
+  </project>
