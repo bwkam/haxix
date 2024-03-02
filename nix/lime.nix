@@ -5,6 +5,10 @@ let
     libname = "lime";
     version = "8.1.1";
     sha256 = "sha256-bOwe+jNymk+5liOv0eoFlNtrYxLBlxivntFnrQDDgKU=";
+    postPatch = ''
+      substituteInPlace ./tools/platforms/HTML5Platform.hx --replace 'System.runCommand(targetDirectory + "/bin", "npm", ["run", runCommand, "-s"]);'\
+        'System.runCommand('${pkgs.neko}/bin/npm', ["run", runCommand, "-s"]);' 
+    '';
   };
 
   hxp_1_3_0 = haxelib.mkHaxelib {

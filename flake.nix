@@ -74,7 +74,7 @@
             name = "helloworld";
             src = ./. + "/demo/${engine}";
             version = "0.0.1-alpha";
-            target = "html5";
+            target = "hl";
           }
         else
           (haxix system).heaps.mkGame {
