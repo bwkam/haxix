@@ -70,7 +70,7 @@
             target = "html5";
           }
         else if engine == "openfl" then
-          (haxix system).heaps.mkGame {
+          (haxix system).openfl.mkGame {
 
             name = "helloworld";
             src = ./. + "/demo/${engine}";

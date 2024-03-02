@@ -1,4 +1,4 @@
-{ pkgs, haxelib, haxe_4_3_3, format_latest, lime }:
+{ pkgs, haxelib, haxe_4_3_3, format_latest, }:
 
 let
   openfl_9_3_2 = haxelib.mkHaxelib {
@@ -31,7 +31,7 @@ in {
     pkgs.stdenv.mkDerivation {
       name = "${name}-${version}";
       inherit src;
-      buildInputs = [ openfl_9_3_2 lime.lime_8_1_1 lime.hxp_1_3_0 ];
+      buildInputs = [ openfl_9_3_2 ];
 
       unpackPhase = ''
         export HOME=$(mktemp -d)
