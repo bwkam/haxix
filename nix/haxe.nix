@@ -25,6 +25,7 @@
       }))
       extlib
       stdlib-shims
+     terminal_size
     ];
 
   generic = {
